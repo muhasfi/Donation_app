@@ -21,3 +21,4 @@ Route::get('/', function () {
 
 Route::get('/' , [DonationController::class, 'index']);
 Route::get('/donation' , [DonationController::class, 'create']);
+Route::post('/donation',[DonationController::class, 'store'] );
