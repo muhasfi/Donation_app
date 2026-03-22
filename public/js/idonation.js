@@ -63,7 +63,7 @@
                 btnText.textContent = "Memproses…";
             }
 
-            $.post("/api/donation", {
+            $.post("/donation", {
                 _method: "POST",
                 _token: document.querySelector('meta[name="csrf-token"]')
                     .content,
@@ -76,13 +76,13 @@
                 .done(function (data) {
                     snap.pay(data.snap_token, {
                         onSuccess: function () {
-                            location.reload();
+                            window.location.href = "/";
                         },
                         onPending: function () {
-                            location.reload();
+                            window.location.href = "/";
                         },
                         onError: function () {
-                            location.reload();
+                            alert("Pembayaran gagal");
                         },
                     });
                 })

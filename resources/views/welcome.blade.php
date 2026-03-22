@@ -16,7 +16,7 @@
         <a class="nav-brand" href="/">IDonation</a>
         <div class="nav-right">
             <a class="nav-link-item" href="/donation">Donasi</a>
-            <a class="nav-link-item active" href="/list">Riwayat</a>
+            <a class="nav-link-item active" href="/">Riwayat</a>
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                 <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="5"/>
