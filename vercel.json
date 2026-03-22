@@ -29,7 +29,7 @@
         },
         {
             "src": "/vendors/(.*)",
-            "dest": "/public/vendors/"
+            "dest": "/public/vendors/$1"
         },
         {
             "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
