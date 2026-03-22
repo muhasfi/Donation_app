@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="{{ asset('css/idonation.css') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
 </head>
 <body>
 
@@ -136,56 +137,7 @@
                         </table>
 
                         {{-- {{ $donations->links('vendor.pagination.idonation') }} --}}
-                        @if ($donations->hasPages())
-                            <div class="id-pagination">
-                                <div class="id-pagination-info">
-                                    Menampilkan
-                                    <strong>{{ $donations->firstItem() }}–{{ $donations->lastItem() }}</strong>
-                                    dari <strong>{{ $donations->total() }}</strong> donasi
-                                </div>
-                                <div class="id-pagination-controls">
-
-                                    {{-- Previous --}}
-                                    @if ($donations->onFirstPage())
-                                        <span class="id-page-btn disabled" aria-disabled="true">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-                                        </span>
-                                    @else
-                                        <a class="id-page-btn" href="{{ $donations->previousPageUrl() }}" rel="prev">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-                                        </a>
-                                    @endif
-
-                                    {{-- Page Numbers --}}
-                                    @foreach ($donations->links()->elements as $element)
-                                        @if (is_string($element))
-                                            <span class="id-page-btn dots">{{ $element }}</span>
-                                        @endif
-                                        @if (is_array($element))
-                                            @foreach ($element as $page => $url)
-                                                @if ($page == $donations->currentPage())
-                                                    <span class="id-page-btn active" aria-current="page">{{ $page }}</span>
-                                                @else
-                                                    <a class="id-page-btn" href="{{ $url }}">{{ $page }}</a>
-                                                @endif
-                                            @endforeach
-                                        @endif
-                                    @endforeach
-
-                                    {{-- Next --}}
-                                    @if ($donations->hasMorePages())
-                                        <a class="id-page-btn" href="{{ $donations->nextPageUrl() }}" rel="next">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                                        </a>
-                                    @else
-                                        <span class="id-page-btn disabled" aria-disabled="true">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-                                        </span>
-                                    @endif
-
-                                </div>
-                            </div>
-                            @endif
+                        <x-pagination :paginator="$donations" />
                     @endif
                 </div>
 
